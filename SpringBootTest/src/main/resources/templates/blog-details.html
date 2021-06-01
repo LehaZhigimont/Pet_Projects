@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Статья</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -16,7 +16,7 @@
         <h3 th:text="${el.title}"></h3>
         <p th:text="${el.full_text}"/>
         <p><b>Просмотры: </b><span th:text="${el.views}"/></p>
-        <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a>
+        <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a></br></br>
         <form th:action="'/blog/' + ${el.id} + '/remove'" method="post">
             <button class="btn btn-warning" type="submit">Удалить</button>
         </form>
