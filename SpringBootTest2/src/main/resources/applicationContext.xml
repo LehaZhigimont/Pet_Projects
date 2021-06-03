@@ -20,6 +20,15 @@
     </bean>
 
     <bean id="musicPlayer" class="by.test.MusicPlayer">
-        <property name="music" ref="musicClassic"/>
+        <property name="musicList" >
+            <list>
+                <ref bean="musicClassic"/>
+                <ref bean="musicRock"/>
+                <ref bean="musicPop"/>
+                <ref bean="musicRap"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 </beans>
