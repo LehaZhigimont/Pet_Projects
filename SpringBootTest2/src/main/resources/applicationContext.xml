@@ -7,29 +7,30 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="by.test"/>
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
+    <!--    <bean id="musicClassic"  class="by.test.ClassicMusic"-->
+    <!--        init-method="doMyInit" destroy-method="doMyDestroy"-->
+    <!--        factory-method="getClassicMusic" scope="prototype">-->
+    <!--    </bean>-->
+    <!--    <bean id="musicRock" class="by.test.RockMusic">-->
+    <!--    </bean>-->
+    <!--    <bean id="musicPop" class="by.test.PopMusic">-->
+    <!--    </bean>-->
+    <!--    <bean id="musicRap" class="by.test.RapMusic">-->
+    <!--    </bean>-->
+    <!--    <bean id="musicPlayer" scope="prototype" class="by.test.MusicPlayer">-->
+    <!--        <property name="musicList" >-->
+    <!--            <list>-->
+    <!--                <ref bean="musicClassic"/>-->
+    <!--                <ref bean="musicRock"/>-->
+    <!--                <ref bean="musicPop"/>-->
+    <!--                <ref bean="musicRap"/>-->
+    <!--            </list>-->
+    <!--        </property>-->
+    <!--        <property name="name" value="${musicPlayer.name}"/>-->
+    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
 
-    <bean id="musicClassic" class="by.test.ClassicMusic">
-    </bean>
-    <bean id="musicRock" class="by.test.RockMusic">
-    </bean>
-    <bean id="musicPop" class="by.test.PopMusic">
-    </bean>
-    <bean id="musicRap" class="by.test.RapMusic">
-    </bean>
-
-    <bean id="musicPlayer" scope="prototype" class="by.test.MusicPlayer">
-        <property name="musicList" >
-            <list>
-                <ref bean="musicClassic"/>
-                <ref bean="musicRock"/>
-                <ref bean="musicPop"/>
-                <ref bean="musicRap"/>
-            </list>
-        </property>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-
-    </bean>
+    <!--    </bean>-->
 </beans>

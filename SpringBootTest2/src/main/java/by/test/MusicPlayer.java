@@ -1,52 +1,45 @@
 package by.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 public class MusicPlayer {
+    private Music music;
+    private Music music2;
     private List<Music> musicList = new ArrayList<>();
 
-    private String name;
-    private int volume;
-    public MusicPlayer(ArrayList<Music> musicList){
-        this.musicList = musicList;
-    }
-
-    public MusicPlayer(){
-    }
-
-    public void playMusic(){
-        for (Music music : musicList) {
-            System.out.println("Playing " + music.getSong());
-        }
-    }
-
-    public List<Music> getMusicList() {
-        return musicList;
-    }
 
     public void setMusicList(List<Music> musicList) {
         this.musicList = musicList;
     }
-    public void setMusic(Music music) {
-        musicList.add(music);
+
+    public MusicPlayer(Music music, Music music2) {
+        this.music = music;
+        this.music2 = music2;
     }
 
-    public String getName() {
-        return name;
+
+    public MusicPlayer(List<Music> musicList){
+        this.musicList = musicList;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String playMusic(){
+        Music music = musicList.get(new Random().nextInt(musicList.size()));
+        return " Playing " + music.getSong().get(new Random().nextInt(music.getSong().size()));
     }
+    public String playMusic(MusicGenre musicGenre) {
+        //System.out.println("Playing " + music.getSong());
+        if (musicGenre.equals(MusicGenre.CLASSIC)) {
+            return " Playing " + music2.getSong().get(new Random().nextInt(music2.getSong().size()));
+        } else
+            return " Playing " + music.getSong().get(new Random().nextInt(music.getSong().size()));
 
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
     }
 }
